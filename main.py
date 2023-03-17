@@ -8,8 +8,8 @@ app = Flask(__name__)
 
 @app.route("/qr")
 def qr():
-msg = request.args.get('msg')
-img = qrcode.make(msg)
+    msg = request.args.get('msg')
+    img = qrcode.make(msg)
 
 buffer = BytesIO()
 img.save(buffer, format="png")
@@ -19,5 +19,5 @@ return f'<img src="data:image/png;base64, {img64.decode()}" alt="qrcode" />'
 
 
 if __name__ == "__main__":
-app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0')
 
